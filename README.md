@@ -78,7 +78,7 @@ The course includes **5 main projects** and a **final project**, each showcasing
    python manage.py runserver
 
 Open the app in your browser at http://127.0.0.1:8000/.
-💡 Key Takeaways
+## 💡 Key Takeaways
 Completing this course taught me:
 
 How to build fully functional web applications from scratch.
