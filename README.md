@@ -85,5 +85,4 @@ How to build fully functional web applications from scratch.
 Effective use of Django for backend development.
 Writing clean, modular, and maintainable code.
 Handling database operations and user authentication securely.
-## 📜 License
-This repository is shared under the MIT License.# cs50w-projects
+
