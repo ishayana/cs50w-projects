@@ -1,0 +1,7 @@
+.alert{
+    margin: 0;
+}
+
+.error > li{
+    color: white;
+}

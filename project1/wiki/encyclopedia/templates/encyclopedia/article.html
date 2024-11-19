@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    {% if content is None %}
+        <h3>The requested page was not found!</h3>
+        {% for article in matched_list %}
+        <ul>
+            <li><a href="{% url 'encyclopedia:article' article %}">{{ article }}</a></li>
+        </ul>
+        {% endfor %}
+    {% else %}
+        {{ content|safe }}
+        <a href="{% url 'encyclopedia:edit' title %}" class="btn btn-secondary">Edit</a>
+    {% endif %}
+
+
+{% endblock %}

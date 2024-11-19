@@ -1,0 +1,56 @@
+
+<div class="transaction-content">
+<button id="createTr-btn" type="button" data-toggle="modal" data-target="#exampleModalCenter">
+    <label for="createTr-btn"">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+    </svg>
+    </label class='transaction-btn'><p>Add Transaction</p>
+</button>
+
+<div class="createTr-form-container hidden">
+    <div id="response-message"></div>
+    <div class="createTr-form">
+        <button type="button" class="btn-close" aria-label="Close"></button>
+        <h3>Create Your Budget</h3>
+        <p>Take control of your finances by setting up a personalized budget.</p>
+        <form id="formTr" action="" method="post">
+            <div class="fields">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Name" maxlength="225" id="id_name" data-ddg-inputtype="identities.fullName">
+                <input type="number" name="amount" placeholder="Amount" step="0.01" required="" id="id_amount" data-ddg-inputtype="unknown">
+                <select name="category" required="" id="id_category" data-ddg-inputtype="unknown">
+                    <option value="" selected="">Category</option>
+                  </select>
+                  <select name="transaction_type" required="" id="id_transaction_type">
+                    <option value="" selected="">Type</option>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                  </select>
+            </div>
+            <input type="text" name="description" placeholder="Description" id="id_description">
+        <input class="submit-tr" type="submit" value="Add">
+        </form>
+
+    </div>
+</div>
+<br>
+<section>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Date</th>
+                <th scope="col">Amount</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody id="transactionTableBody">
+        <tr>
+        </tr>
+        </tbody>
+      </table>
+</section>

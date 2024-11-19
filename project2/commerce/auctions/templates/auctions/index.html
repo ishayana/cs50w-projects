@@ -1,0 +1,39 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<h1>Active Listings</h1>
+<main>
+  <article class="icontainer">
+    {% for listing, is_watchlisted in listsing_list %}
+    <div class="card-item">
+      <a class="add-wl-btn" href="{% url 'auctions:add_watchlist' listing.id %}">
+        {% if not is_watchlisted %}
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" id="add-wl-icon"
+          class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+          <path
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
+        </svg>
+        {% else %}
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" id="add-wl-icon"
+          class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1z" />
+        </svg>
+        {% endif %}
+      </a>
+      <a class="card-link" href="{% url 'auctions:listing_details' listing.id %}">
+        <div class="image-container">
+          <img src="{{ listing.image }}" alt="list-image">
+        </div>
+        <div class="listing-content">
+          <h1 class="listing-title">{{ listing.title|truncatechars:30 }}</h1>
+          <p class="listing-txt">{{ listing.description|truncatechars:85 }}</p>
+          <h5 class="listing-bid">{{ listing.bid }}$</h5>
+          <p class="listing-author">Listed by: {{ listing.author }}</p>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </article>
+</main>
+
+{% endblock %}

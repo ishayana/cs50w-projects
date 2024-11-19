@@ -1,0 +1,40 @@
+
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    height: 60px;
+    padding: 10px 7px;
+
+}
+
+.logo{
+    border: none;
+    background: none;
+    color: white;
+    font-size: 35px;
+    font-family: "DM Sans", sans-serif;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.register-btn{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    width: auto;
+    height: auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px 7px;
+    border: none;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all .4s ease;
+}
+
+.registeration-btn:hover{
+    background-color: rgb(152, 152, 152);
+}

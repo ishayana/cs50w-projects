@@ -1,0 +1,36 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Create Listings</h2>
+    <form action="" method="post" class="form-group" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        {{ form.title.label_tag }}
+        {{ form.title }}
+        <br>
+        {{ form.description.label_tag }}
+        {{ form.description }}
+        <br>
+        <div class="form-row">
+            <div class="col-md-2 mb-3">
+                {{ form.bid.label_tag }}
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend">$</span>
+                    </div>
+                    {{ form.bid }}
+                </div>
+            </div>
+            <div class="col-md-2 mb-3">
+                {{ form.category.label_tag }}
+                {{ form.category }}
+                
+            </div>
+            
+        </div>
+            
+        {{ form.image.label_tag }}
+        {{ form.image }}
+        <br>
+        <input type="submit" name="submit" id="" value="Create" class="btn btn-success">
+    </form>
+{% endblock %}

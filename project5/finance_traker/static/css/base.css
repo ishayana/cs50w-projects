@@ -1,0 +1,14 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: 
+        linear-gradient(150deg, #353535 0%, #000000 100%),
+        url('../img/noisy-texture.png'); 
+    background-blend-mode: overlay;
+}
+
+.error{
+    color: rgb(218, 141, 141);
+    font-size: 12px;
+}

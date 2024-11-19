@@ -1,0 +1,12 @@
+textarea {
+    min-height: 400px;
+}
+
+.row-mail{
+    cursor: pointer;
+}
+
+.row-mail.read{
+    background-color: rgb(255, 255, 255);
+    background: linear-gradient(90deg, #e0e0e0 0%, #ffffff 100%);
+}

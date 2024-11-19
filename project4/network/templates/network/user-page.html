@@ -1,0 +1,105 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+
+<div class="up-container">
+  <div class="user-avatar mt-5" title="{{ user.username|title }}">{{ user.username|first|upper }}</div>
+  <h1>{{ user.username }}</h1>
+  <div class="container mt-2 fixed-size-table">
+    {% if user != request.user %}
+    {% if followed %}
+    <button class="follow-btn" data-userId="{{ user.id }}">Unfollow</button>
+    {% else %}
+    <button class="follow-btn" data-userId="{{ user.id }}">Follow</button>
+    {% endif %}
+    {% endif %}
+    <table class="table table-borderless justify-center">
+      <thead class="thead-dark text-center">
+        <tr>
+          <th scope="col">Posts</th>
+          <th scope="col">Follower</th>
+          <th scope="col">Following</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center">
+          <td>{{ user.posts.count }}</td>
+          <td id="follower-count">{{ follower.count }}</td>
+          <td>{{ following.count }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ul class="list-group">
+      {% for post, liked in user_posts %}
+      <li class="list-group-item" id="list-group-item">
+        <div class="post-header">
+        <div>
+          <a class="post-author" href="{% url 'network:user_page' user.id %}">{{ post.author|title }}</a>
+          <small class="text-muted">{{ post.created }}</small>
+        </div>
+
+          {% if post.author == request.user %}
+          <button class="edit-post" data-postId="{{ post.id }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+            </svg>
+          </button>
+          {% endif %}
+        </div>
+        
+        <div class="edit-form" id="edit-form{{ post.id }}" style="display: none;">
+          <textarea id="edit-content-{{ post.id }}"></textarea>
+          <button id="save" data-postid="{{ post.id }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+              <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
+            </svg>
+          </button>
+          <button id="cancel" data-postid="{{ post.id }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+            </svg>
+          </button>
+        </div>
+        
+        <p id="post-text-{{ post.id }}">{{ post.text }}</p>
+        <div class="post-footer">
+          <button class="post-btn like-btn" data-postId="{{ post.id }}" id="like-btn">
+            {% if not liked %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+              <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+            </svg>
+
+            {% else %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+            </svg>
+            {% endif %}
+          </button>
+          <span class="like-counter" id="like-count-{{ post.id }}">{{ post.like_count }}</span>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% if postcount > 10 %}
+<nav aria-label="Page navigation example ">
+  <ul class="pagination justify-content-center">
+    {% if user_posts.has_previous %}
+    <li class="page-item"><a class="page-link" href="?page={{ user_posts.previous_page_number }}">Previous</a></li>
+    {% else %}
+    <li class="page-item disabled"><a class="page-link">Previous</a></li>
+    {% endif %}
+    {% if user_posts.has_next %}
+    <li class="page-item"><a class="page-link" href="?page={{ user_posts.next_page_number }}">Next</a></li>
+    {% else %}
+    <li class="page-item disabled"><a class="page-link">Next</a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
+{% endblock %}

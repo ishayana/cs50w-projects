@@ -1,0 +1,20 @@
+<section class="categories">
+
+    {% for budget, budget_percent in budgets %}
+    <div class="category">
+        <h2>{{ budget.category }}</h2>
+        <p>{{ budget.current_amount|floatformat:0 }}$/{{ budget.amount|floatformat:0 }}$</p>
+        <div class="line-bar">
+            {% if budget_percent > 100%}
+            <div class='status-bar' style="width: 100%;"></div>
+            {% else %}
+            <div class='status-bar' style="width: {{ budget_percent }}%;"></div>
+            {% endif %}
+        </div>
+        <div class="percent">
+            <small>{{ budget_percent }}%</small>
+        </div>
+    </div>
+    {% endfor %}
+    
+</section>

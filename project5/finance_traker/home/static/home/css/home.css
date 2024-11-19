@@ -1,0 +1,162 @@
+
+
+.hero-cont{
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img{
+    width: 200px;
+    height: 200px;
+}
+
+.hero{
+    width: 1300px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+ul{
+    padding: 0;
+}
+
+.left-hero{
+    display: flex;
+    flex-direction: column;
+}
+
+.left-hero ul li{
+    padding: 0;
+    font-size: 70px;
+    font-family: nexa, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: -4px;
+    color: #ffffff;
+    line-height: 60px;
+    list-style-type: none;
+    font-weight: 700;
+}
+
+.left-hero ul li:nth-child(2) {
+    background: #d5d5d5;
+    background: linear-gradient(150deg, #d5d5d5 0%, #000000 100%);
+
+
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.left-hero p {
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    max-width: 400;
+    color: #9a9a9a;
+    margin: 10px 0;
+}
+
+.right-hero{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+form{
+    position: relative;
+    top: 40px;
+}
+
+
+form > h2{
+    width: 100%;
+    text-align: center;
+    margin: 0 0 40px 0;
+    color: #505050;
+}
+
+.form-group{
+    display: flex;
+    align-items: center;
+}
+
+.form-group label {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    min-width: 30px;
+}
+
+.form-group label svg {
+    width: 25px;
+    height: 25px;
+    color: #919191;
+}
+
+#id_username, #id_password{
+    border: .5px solid gray;
+    border-radius: 10px;
+    background-color: #adadad;
+    height: 35px;
+    margin: 0 0 8px;
+    padding: 0 10px;
+}
+
+form > input{
+    height: 35px;
+    border-radius: 10px;
+    background-color: rgb(37, 37, 37);
+    border: none;
+    color: white;
+    width: 203px;
+    float: right;
+    transition: all .5s ease;
+}
+form > input:hover{
+    background-color: #505050;
+}
+
+@media screen and (max-width: 660px) {
+    .hero-cont{
+        align-items: flex-start;
+    }
+    .left-hero ul li{
+        font-size: 50px;
+        line-height: 50px;
+    }
+    
+    .hero{
+        margin: 0px 0 ;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+    }
+
+    .left-hero{
+        align-items: center;
+    }
+
+    .left-hero p{
+        margin: 0 40px;
+
+    }
+    .right-hero{
+        align-items: center;
+        margin: 0px 0 0;
+    }
+    .hero-img{
+        width: 150px;
+        height: 150px;
+        display: none;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .hero-img{
+        display: none;
+    }
+}

@@ -1,0 +1,67 @@
+{% load humanize %}
+<section class="dashboard-sec">
+
+    <button id="createbg-btn" type="button" data-toggle="modal" data-target="#exampleModalCenter"> <label
+            for="createbg-btn"">
+        <svg xmlns=" http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus"
+            viewBox="0 0 16 16">
+            <path
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+            </svg>
+        </label class='budget-btn'>
+        <p>Create Budget</p>
+    </button>
+
+    <section class="account-summery">
+        <div class="balance">
+            <h6>Total balance</h6>
+            <h4></h4>
+        </div>
+        <div class="income">
+            <h6>Income</h6>
+            <h4></h4>
+        </div>
+        <div class="expense">
+            <h6>Expense</h6>
+            <h4></h4>
+        </div>
+    </section>
+
+    <section class="category-chart">
+        <div class="col-xs-12 text-center">
+        </div>
+        <div class="dounut-chart">
+            <p id="nochart-alert" class="hidden">"No data available. Create a budget to view the chart."</p>
+            <canvas id="myChart"></canvas>
+        </div>
+
+    </section>
+    <div class="createbg-form-container hidden">
+        <div id="response-message"></div>
+        <div class="createbg-form">
+            <button type="button" class="btn-close" aria-label="Close"></button>
+            <h3>Create Your Budget</h3>
+            <p>Take control of your finances by setting up a personalized budget.</p>
+            <form id="formbg" action="" method="post">
+                {% csrf_token %}
+                <input type="number" name="amount" placeholder="Amount" required="" id="id_amount">
+                <input type="text" name="category" placeholder="Category" maxlength="200" required="" id="id_category">
+                <div>
+                    <label for="start_inp">Start at:</label>
+                    <div id="start_inp">
+                        <input type="date" name="start_date" required="" id="id_start_date">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="end_inp">to:</label>
+                    <div id="end_inp">
+                        <input type="date" name="end_date" id="id_end_date">
+                    </div>
+                </div>
+                <input class="submit-cb" type="submit" value="create">
+            </form>
+        </div>
+    </div>
+    
+</section>

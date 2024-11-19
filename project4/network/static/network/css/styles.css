@@ -1,0 +1,182 @@
+.post-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-author{
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.post-header small{
+    margin: 0 0 0 10px;
+}
+
+.edit-post{
+    border: none;
+    border-radius: 7px;
+    background: none;
+    transition: all .5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    color: rgb(106, 106, 106);
+}
+
+.edit-post:hover{
+    background-color: rgb(204, 204, 204);
+
+}
+
+#post-form{
+    border-radius: 15px;
+    resize: none;
+
+}
+
+#list-group-item{
+    margin: 10px 0;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(222, 222, 222);
+}
+
+#post-submit-btn{
+    background-color: rgb(109, 0, 0);
+    border: none;
+    
+}
+
+
+.post-footer{
+    background-color: rgb(138, 138, 138);
+    border-radius: 5px;
+    display: inline-block;
+    overflow: hidden;
+    width: auto;
+    padding: 0 6px 0 0;
+}
+
+.edit-form textarea {
+    width: 100%;
+    resize: none;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(243, 243, 243);
+    padding: 5px;
+    outline: none;
+}
+
+.edit-form #save{
+    float: right;
+    border: none;
+    background: none;
+    color: green;
+}
+.edit-form #cancel{
+    float: right;
+    border: none;
+    background: none;
+    color: rgb(128, 0, 75);
+}
+
+
+.post-btn{
+    border-radius: 5px;
+    background-color: transparent;
+    border: none;
+    color: rgb(231, 231, 231);
+    padding: 0 5px;
+    transition: all .2s ease-in;
+    margin: 0;
+    
+}
+
+
+#like-btn:hover{
+    background-color: rgb(114, 0, 0);
+}
+
+
+.like-counter{
+    color: #e7e7e7;
+    font-weight: 600;
+    font-size: 14px;
+    position: relative;
+}
+
+.page-link{
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: 600;
+}
+.page-link:hover{
+    background-color: #545454;
+    color: #ffffff;
+}
+
+.page-item.disabled .page-link{
+    background-color: #4f4f4f;
+    color: #8a8a8a;
+}
+
+
+/* userprofile */
+
+
+.up-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fixed-size-table {
+    max-width: 600px;
+    table-layout: fixed; /* Ensure table cells respect the set width */
+}
+
+
+td{
+    text-align: center;
+}
+
+th{
+    width: 150px;
+}
+
+.user-avatar{
+    background-color: black;
+    color: white;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 400;
+    font-size: 40px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.follow-btn{
+    border: none;
+    background-color: black;
+    width: 100%;
+    margin: 3px 0 0 0;
+    color: white;
+    font-weight: 500;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all .2s ease;
+}
+
+.follow-btn:hover{
+    background-color: rgb(42, 42, 42);
+}

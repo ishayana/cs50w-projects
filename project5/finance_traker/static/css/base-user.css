@@ -1,0 +1,232 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "DM Sans", sans-serif;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.fade-animation{
+    animation-name: fade;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    animation-delay: 5s;
+}
+
+
+
+#response-message{
+    position: absolute;
+    top: 130px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.deactive {
+    display: none;
+}
+
+.alert{
+    margin: 0;
+}
+
+.dash-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: #d6e1ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1920px;
+    height: inherit;
+    background-color: #33608d;
+    
+}
+
+/* Menu bar */
+
+
+
+.menu-bar{
+    width: 25%;
+    height: inherit;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:30px;
+}
+
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    color: rgb(255, 255, 255);
+    font-size: 35px;
+    font-family: "DM Sans", sans-serif;
+    font-weight: bolder;
+    margin: 0 0 70px;
+}
+
+.menu-bar > p{
+    font-size: 14px;
+    float: left;
+    font-weight: 700;
+    width: 100px;
+    opacity: .8;
+}
+.menu-bar > ul{
+    list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.menu-bar > ul > li{
+    margin: 20px 0;
+    font-weight: 600;
+    width: 100%;
+    min-width: 20%;
+    height: auto;
+    padding: 10px;
+    background-color: #e7f3ff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+li > p {
+    margin: 0 5px;
+}
+
+li > label{
+    margin: 0 5px;
+}
+
+/* finance status */
+
+.finance-status{
+    background-color: #e7f3ff;
+    width: 75%;
+    height: 100vh;
+    overflow: auto;
+    padding: 15px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 50px;
+    position: relative;
+}
+
+.menu-show-btn{
+    display: none;
+}
+
+.welcoming{
+    display: flex;
+    gap: 10px;
+}
+
+.welcoming p, .welcoming h3{
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -1.5px;
+}
+
+.welcoming > p{
+    opacity: .8;
+}
+
+#dropdownMenuButton1{
+    background: #0000001b;
+    color: black;
+    border: none;
+}
+
+.user-info{
+    display: flex;
+    padding: 5px 8px 5px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .5s ease-out;
+    align-items: center;
+}
+
+#dropdownMenuButton1:hover{
+    background-color: #b8c2cc;
+}
+
+.user-info:nth-child(1){
+    display: grid;
+}
+.user-info p {
+    margin: 0 5px 0 0;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.user-info p:nth-child(2){
+    font-size: 13px;
+    font-weight: 600;
+    opacity: .8;
+}
+
+.user-avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 45px;
+    height: 45px;
+    color: white;
+    border-radius: 100%;
+    font-size: 20px;
+    margin: 0 5px;
+}
+
+
+@media screen and (max-width: 700px) {
+    .menu-bar{
+        padding: 30px 0;
+    }
+}
+@media screen and (max-width: 600px) {
+    .menu-show-btn{
+        display: block;
+    }
+    .menu-bar{
+        display: none;
+        position: absolute;
+        z-index: 99;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+    .finance-status{
+        width: 100vw;
+        height: 100vh;
+    }
+}

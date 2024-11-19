@@ -1,0 +1,30 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Your Watchlist</h2>
+
+    <main>
+  <article class="icontainer">
+      {% for watchlist in watchlists %}
+      <div class="card-item">
+        <a class="add-wl-btn" href="{% url 'auctions:add_watchlist' watchlist.id %}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" id="add-wl-icon" class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1z"/>
+        </svg>
+        </a>
+        <a class="card-link" href="{% url 'auctions:listing_details' watchlist.id %}">
+          <div class="image-container">
+            <img src="{{ watchlist.image }}" alt="">
+          </div>
+          <div class="listing-content">
+            <h1 class="listing-title">{{ watchlist.title|truncatechars:30 }}</h1>
+            <p class="listing-txt">{{ watchlist.description|truncatechars:85 }}</p>
+            <h5 class="listing-bid">{{ watchlist.bid }}$</h5>
+            <p class="listing-author">Listed by: {{ watchlist.author }}</p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+      </article>
+    </main>
+{% endblock %}

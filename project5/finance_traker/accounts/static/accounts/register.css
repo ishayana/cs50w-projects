@@ -1,0 +1,90 @@
+.reg-cont{
+    width: inherit;
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.reg{
+    background: linear-gradient(140deg, #191919 0%, #313131 100%),
+    url(../../../static/img/noisy-texture.png);
+    background-blend-mode: overlay;
+    padding: 50px 65px 50px 50px;
+    border-radius: 8px;
+}
+
+.reg > h2{
+    margin: 0 0 10px 0;
+}
+.reg > p,.reg > h2 {
+    text-align: center;
+    color: #919191;
+}
+
+form{
+    display: grid;
+    justify-content: center;
+}
+
+.form-group{
+    display: flex;
+    align-items: center;
+}
+
+label{
+    display: flex;
+    align-items: center;
+    color: #adadad;
+    margin: 0 7px 0 0;
+
+}
+
+.form-group label svg {
+    width: 20px;
+    height: 20px;
+    color: #919191;
+}
+
+#id_username , #id_email, #id_password, #id_password1{
+    border: .5px solid gray;
+    border-radius: 10px;
+    background-color: #adadad;
+    height: 35px;
+    margin: 0 0 8px;
+    padding: 0 10px;
+}
+
+form > input:last-child {
+    height: 35px;
+    border-radius: 10px;
+    background-color: rgb(37, 37, 37);
+    border: none;
+    color: white;
+    width: 203px;
+    justify-self: flex-end;
+    transition: all .5s ease;
+}
+
+form > input:last-child:hover{
+    background-color: #505050;
+}
+
+@media screen and (max-width:660px) {
+    .reg{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        background: none;
+    }
+    form{
+        width: 100%;
+    }
+    form > input{
+        width: 100%;
+    }
+
+}

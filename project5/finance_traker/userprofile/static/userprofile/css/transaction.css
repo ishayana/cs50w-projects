@@ -1,0 +1,162 @@
+
+#createTr-btn{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.transaction-btn{
+    margin: 0;
+}
+
+.createTr-form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(3px) saturate(50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.hidden {
+    display: none;
+}
+.createTr-form{
+    background-color: #daedff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 70vw;
+    max-width: 600px;
+    height: auto;
+    z-index: 99;
+    padding: 20px;
+    position: relative;
+}
+
+.btn-close{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.createTr-form > p {
+    margin: 0 0 50px 0;
+    text-align: center;
+}
+
+.fields{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; 
+    width: 100%;
+}
+
+#id_amount, #id_category, #id_transaction_type, #id_name, #id_description {
+    width: 100%;
+    max-width: 300px;
+    border: none;
+    height: 40px;
+    border-radius: 5px;
+    font-family: "DM Sans", sans-serif;
+}
+
+#id_description {
+    margin: 10px 0;
+    width: 100%;
+}
+
+#formTr, #formTrUpdate {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+label{
+    font-family: "DM Sans", sans-serif;
+    margin: 0 5px 0 0;
+    font-weight: 700;
+    
+}
+
+.submit-tr {
+    border-radius: 5px;
+    border: none;
+    grid-column: 1 / -1;
+    height: 40px;
+    width: 70px;
+    background-color: black;
+    color: white;
+    font-weight: 400;
+    margin: 10px;
+    transition: all .5s ease;
+}
+
+.submit-tr:hover{
+    background-color: rgb(71, 71, 71);
+}
+
+
+table{
+    border-radius: 10px;
+}
+
+.bi-trash{
+    color: rgb(142, 0, 0);
+}
+
+.bi-pencil-square{
+    color: rgb(0, 127, 57);
+}
+
+@keyframes fade{
+    0%{
+        opacity: 1;
+        width: auto;
+    }
+    100%{
+        width: 0;
+        opacity: 0;
+    }
+}
+
+.transaction-rm{
+    width: 5px;
+    height: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.tr-animate-out {
+    animation-name: fade;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(.41,.01,.14,.98);
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+
+.transaction-rm:hover{
+    background-color: rgb(218, 218, 218);
+}
+@media screen and (max-width:450px) {
+    .createTr-form{
+        width: 100vw;
+        height: 100vh;
+    }
+}
